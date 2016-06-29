@@ -186,10 +186,11 @@
             scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
         }
 
-        $.post(currentURL + "/api/friends", friendData).done(function(data) {
+        $.post( currentURL + "/api/friends", friendData)
+                .done(function(data){
             console.log(data);
 
-            // Clear the form when submitting
+            
             $("#matchName").text(data.name);
             $('#matchImg').attr("src", data.photo).width(300);
             $("#resultsModal").modal('toggle');

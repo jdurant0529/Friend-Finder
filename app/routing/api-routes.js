@@ -39,38 +39,31 @@ module.exports = function(app){
 		// Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
 		// It will do this by sending out the value "true" have a table 
 		var body = req.body;
-		console.log(friends);
-		console.log(body);
+		console.log(friends); // friends array
+		console.log(body); // inputted object
 
 		var bestFriendScore;
 		var bestFriendIndex;
 		var currentFriendScore;
 
-	// 	for (i=0; i<friends.length; i++){
+//Compare the values to each array to come up with a match
+// i = first array, j = second array
+var totalDifference = 0;
 
-
-	// 	for (i = 0; i < friends[i].scores.length; i++){
-
-
-
-	// 	}
-
-	// }
+for (var i = 0; i < friends[0].scores.length; i++) {
+	for (var j = 0; j < friends[1].scores.length; j++) { 
+		if (i == j) {
+			// subtract both values from the array and make sure it's positive numbers
+			total = Math.abs(parseInt(friends[0].scores[i]) - parseInt(friends[1].scores[j]));
+			totalDifference = parseInt(totalDifference) + parseInt(total);
+			console.log("friends[0].scores[i]:"+friends[0].scores[i]);
+			console.log("friends[1].scores[j]:"+friends[1].scores[j]);
+			console.log("totalDifference: "+totalDifference);
+			console.log("==========================");
+		}
+	}
+}
+console.log(totalDifference);
 		res.json(body);
-			//friendData.push(req.body);
-			//console.log(friendData);
-			//res.json(true); // KEY LINE
-
 	});
-
-	// ---------------------------------------------------------------------------
-	// I added this below code so you could clear out the table while working with the functionality.
-	// Don't worry about it!
-
-	// app.post('/api/clear', function(req, res){
-	// 	// Empty out the arrays of data
-	// 	friendData = [];
-		
-	// 	console.log(friendData);
-	// })
 }
