@@ -142,9 +142,7 @@
                                 <option value="4">4</option>
                                 <option value="5">5 (Strongly Agree)</option>
                             </select>
-
                             <hr>
-                            
                             <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                         </form>
                     </div>
@@ -157,36 +155,50 @@
             </div>
         </footer>
     </div>
-
     <div id="resultsModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
-            <h2 class="modal-title"><strong>Best Match</strong></h2>
-          </div>
-          <div class="modal-body">
-            <h2 id="matchName"></h2>
-            <img id="matchImg" src="FriendFinder_files/3435aa3.jpg" alt="">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title"><strong>Best Match</strong></h2>
+                </div>
+                <div class="modal-body">
+                    <h2 id="matchName"></h2>
+                    <img id="matchImg" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-
-      </div>
     </div>
+    <!-- <script type="text/javascript" src="/js/compatible-logic.js"></script> -->
+    <script type="text/javascript">
+    $("#submit").on("click", function() {
+        console.log('I just clicked the submit button');
+
+        var currentURL = window.location.origin;
+
+        var friendData = {
+            name: $("#friend_name").val(),
+            photo: $("#friend_photo").val(),
+            scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
+        }
+
+        $.post(currentURL + "/api/friends", friendData).done(function(data) {
+            console.log(data);
+
+            // Clear the form when submitting
+            $("#matchName").text(data.name);
+            $('#matchImg').attr("src", data.photo).width(300);
+            $("#resultsModal").modal('toggle');
+
+        });
+
+        return false;
+    })
+    </script>
 </body>
 
 </html>
-<!-- <script type="text/javascript" src="/js/compatible-logic.js"></script> -->
-
-    <script type="text/javascript">
-   $("#submit").on("click", function() {
-        console.log('I just clicked the submit button');
-
-        return false;
-   })
-   </script>

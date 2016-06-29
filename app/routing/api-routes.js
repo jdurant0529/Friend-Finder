@@ -7,9 +7,6 @@
 var friends 		= require('../data/friend-data.js');
 var path 			= require('path');
 
-
-
-
 // ===============================================================================
 // ROUTING
 // ===============================================================================
@@ -37,26 +34,43 @@ module.exports = function(app){
 	// Then the server saves the data to the tableData array)
 	// ---------------------------------------------------------------------------
 
-	// app.post('/api/friends', function(req, res){
+	app.post('/api/friends', function(req, res){
 
-	// 	// Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-	// 	// It will do this by sending out the value "true" have a table 
-		
-	// 		friendData.push(req.body);
-	// 		res.json(true); // KEY LINE
+		// Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
+		// It will do this by sending out the value "true" have a table 
+		var body = req.body;
+		console.log(friends);
+		console.log(body);
+
+		var bestFriendScore;
+		var bestFriendIndex;
+		var currentFriendScore;
+
+	// 	for (i=0; i<friends.length; i++){
+
+
+	// 	for (i = 0; i < friends[i].scores.length; i++){
 
 
 
-	// });
+	// 	}
+
+	// }
+		res.json(body);
+			//friendData.push(req.body);
+			//console.log(friendData);
+			//res.json(true); // KEY LINE
+
+	});
 
 	// ---------------------------------------------------------------------------
 	// I added this below code so you could clear out the table while working with the functionality.
 	// Don't worry about it!
 
-	app.post('/api/clear', function(req, res){
-		// Empty out the arrays of data
-		friendData = [];
+	// app.post('/api/clear', function(req, res){
+	// 	// Empty out the arrays of data
+	// 	friendData = [];
 		
-		console.log(friendData);
-	})
+	// 	console.log(friendData);
+	// })
 }
