@@ -178,7 +178,7 @@
     $("#submit").on("click", function() {
         console.log('I just clicked the submit button');
 
-        var currentURL = window.location.origin;
+        
 
         var friendData = {
             name: $("#friend_name").val(),
@@ -186,8 +186,9 @@
             scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(), ]
         }
 
-        $.post( currentURL + "/api/friends", friendData)
-                .done(function(data){
+        var currentURL = window.location.origin;
+        
+        $.post( currentURL + "/api/friends", friendData).done(function(data){
             console.log(data);
 
             
