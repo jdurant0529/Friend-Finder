@@ -19,6 +19,7 @@ module.exports = function(app) {
     // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table) 
     // ---------------------------------------------------------------------------
 
+//app.get returns simple data as json...nothing really happens.
     app.get('/api/friends', function(req, res) {
         console.log('inside api-routes function');
         console.log(friends);
@@ -36,66 +37,46 @@ module.exports = function(app) {
 
     app.post('/api/friends', function(req, res) {
 
-        // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-        // It will do this by sending out the value "true" have a table 
+        // saving data from $.post in the quiz.html page
         var body = req.body;
         console.log(friends); // friends array
-        console.log(body); // inputted object
+        console.log(body); // new user object
 
-
-
-
-        //Compare the values to each array to come up with a match
-        // i = first array, j = second array
-        //var currentDifference = 0;
         var bestFriendScore = 100;
         var bestFriendIndex = 0;
 
         for (var i = 0; i < friends.length; i++) {
+        	//calculate difference between each existing friend and user data.
             var currentdifference = calcDifference(friends[i].scores, body.scores)
-            console.log('Before if loop');
-            console.log('--------------');
-            console.log('currentdifference: ' + currentdifference);
-            console.log('bestFriendScore: ' + bestFriendScore);
-            console.log('bestFriendIndex: ' + bestFriendIndex);
+            // console.log('Before if loop');
+            // console.log('--------------');
+            // console.log('currentdifference: ' + currentdifference);
+            // console.log('bestFriendScore: ' + bestFriendScore);
+            // console.log('bestFriendIndex: ' + bestFriendIndex);
+            //creates some variable to store closest match and best index
             if (i == 0) {
-                bestFriendIndex = i;
+                bestFriendIndex = i; // basically initializes bestfriend index to the first friend
                 bestFriendScore = currentdifference;
             }
             if (currentdifference < bestFriendScore) {
                 bestFriendIndex = i;
                 bestFriendScore = currentdifference
             }
-            console.log('After loop');
-            console.log('-----------');
-            console.log('currentdifference: ' + currentdifference);
-            console.log('bestFriendScore: ' + bestFriendScore);
-            console.log('bestFriendIndex: ' + bestFriendIndex);
+            // console.log('After loop');
+            // console.log('-----------');
+            // console.log('currentdifference: ' + currentdifference);
+            // console.log('bestFriendScore: ' + bestFriendScore);
+            // console.log('bestFriendIndex: ' + bestFriendIndex);
         }
 
-        console.log('bestfriendindex' + bestFriendIndex);
-        console.log('bf score: ' + bestFriendScore);
-        console.log('best friend: ' + friends[bestFriendIndex]);
-        // console.log(difference);
+        // console.log('bestfriendindex' + bestFriendIndex);
+        // console.log('bf score: ' + bestFriendScore);
+        // console.log('best friend: ' + friends[bestFriendIndex]);
 
-
-        // for (var i = 0; i < friends[0].scores.length; i++) {
-        // 	for (var j = 0; j < friends[1].scores.length; j++) { 
-        // 		if (i == j) {
-        // 			// subtract both values from the array and make sure it's positive numbers
-        // 			total = Math.abs(parseInt(friends[0].scores[i]) - parseInt(friends[1].scores[j]));
-        // 			totalDifference = parseInt(totalDifference) + parseInt(total);
-        // 			console.log("friends[0].scores[i]:"+friends[0].scores[i]);
-        // 			console.log("friends[1].scores[j]:"+friends[1].scores[j]);
-        // 			console.log("totalDifference: "+totalDifference);
-        // 			console.log("==========================");
-        // 		}
-        // 	}
-        // }
-        //console.log(totalDifference);
+        //res.json - returns the best friend as json to the html file
         res.json(friends[bestFriendIndex]);
     });
-
+    //function calculates the difference between current friend and new friend scores
     function calcDifference(existing, newFriend) {
         var difference = 0;
         console.log('existing: ' + existing);
@@ -105,7 +86,6 @@ module.exports = function(app) {
             // console.log(existing[i]);
             difference += Math.abs(existing[i] - newFriend[i])
         }
-        console.log(difference);
         return difference;
     }
 }

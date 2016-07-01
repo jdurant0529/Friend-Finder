@@ -19,10 +19,11 @@ module.exports = function(app){
 	// In each of the below cases the user is shown an HTML page of content
 	// ---------------------------------------------------------------------------
 
+	//lists friends as json 
 	app.get('/friends', function(req, res){
 		res.sendFile(path.join(__dirname + '/../public/friends.html'));
 	});
-
+	//displays quiz page
 	app.get('/quiz', function(req, res){
 		res.sendFile(path.join(__dirname + '/../public/quiz.html'));
 	});

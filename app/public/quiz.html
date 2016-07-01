@@ -23,10 +23,12 @@
             <hr>
             <h2 class="text-center">About you</h2>
             <br>
+            <a href="/"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon glyphicon-home"></span>  Home</button></a>
         </div>
-        <div class="row">
+        <!-- this row lists all of the questions and submit button -->
+        <div class="row">  
             <div class="col-lg-12">
-                <!-- Reservation Page -->
+                
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">Survey Questions</h4>
@@ -42,6 +44,7 @@
                                 <input type="text" class="form-control" id="friend_photo">
                             </div>
                             <hr>
+                            <div class = 'col-lg-6'>
                             <h3>Question 1</h3>
                             <h4>Pepsi is better than Coke.</h4>
                             <select data-placeholder="" class="chosen-select form-control" id="q1">
@@ -53,7 +56,7 @@
                                 <option value="5">5 (Strongly Agree)</option>
                             </select>
                             <h3>Question 2</h3>
-                            <h4>Pepsi is better than Coke.</h4>
+                            <h4>Lebron James is better than Michael Jordan</h4>
                             <select data-placeholder="" class="chosen-select form-control" id="q2">
                                 <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
@@ -63,7 +66,7 @@
                                 <option value="5">5 (Strongly Agree)</option>
                             </select>
                             <h3>Question 3</h3>
-                            <h4>Pepsi is better than Coke.</h4>
+                            <h4>PS4 is better than XBox1</h4>
                             <select data-placeholder="" class="chosen-select form-control" id="q3">
                                 <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
@@ -73,7 +76,7 @@
                                 <option value="5">5 (Strongly Agree)</option>
                             </select>
                             <h3>Question 4</h3>
-                            <h4>Pepsi is better than Coke.</h4>
+                            <h4>Droid is better than iOS.</h4>
                             <select data-placeholder="" class="chosen-select form-control" id="q4">
                                 <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
@@ -83,7 +86,7 @@
                                 <option value="5">5 (Strongly Agree)</option>
                             </select>
                             <h3>Question 5</h3>
-                            <h4>Pepsi is better than Coke.</h4>
+                            <h4>Apples are better than bananas.</h4>
                             <select data-placeholder="" class="chosen-select form-control" id="q5">
                                 <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
@@ -92,8 +95,10 @@
                                 <option value="4">4</option>
                                 <option value="5">5 (Strongly Agree)</option>
                             </select>
+                            </div>
+                             <div class = 'col-lg-6'>
                             <h3>Question 6</h3>
-                            <h4>Pepsi is better than Coke.</h4>
+                            <h4>Dogs are better than cats.</h4>
                             <select data-placeholder="" class="chosen-select form-control" id="q6">
                                 <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
@@ -103,7 +108,7 @@
                                 <option value="5">5 (Strongly Agree)</option>
                             </select>
                             <h3>Question 7</h3>
-                            <h4>Pepsi is better than Coke.</h4>
+                            <h4>Sticks hurt more than Stones.</h4>
                             <select data-placeholder="" class="chosen-select form-control" id="q7">
                                 <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
@@ -113,7 +118,7 @@
                                 <option value="5">5 (Strongly Agree)</option>
                             </select>
                             <h3>Question 8</h3>
-                            <h4>Pepsi is better than Coke.</h4>
+                            <h4>"Friends" is better than "Big Bang Theory".</h4>
                             <select data-placeholder="" class="chosen-select form-control" id="q8">
                                 <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
@@ -123,7 +128,7 @@
                                 <option value="5">5 (Strongly Agree)</option>
                             </select>
                             <h3>Question 9</h3>
-                            <h4>Pepsi is better than Coke.</h4>
+                            <h4>"Star Wars" is better than "Star Trek"</h4>
                             <select data-placeholder="" class="chosen-select form-control" id="q9">
                                 <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
@@ -133,7 +138,7 @@
                                 <option value="5">5 (Strongly Agree)</option>
                             </select>
                             <h3>Question 10</h3>
-                            <h4>Pepsi is better than Coke.</h4>
+                            <h4>Facebook is a waste of time.</h4>
                             <select data-placeholder="" class="chosen-select form-control" id="q10">
                                 <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
@@ -142,7 +147,9 @@
                                 <option value="4">4</option>
                                 <option value="5">5 (Strongly Agree)</option>
                             </select>
+                            </div>
                             <hr>
+                            <br>
                             <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                         </form>
                     </div>
@@ -164,7 +171,8 @@
                     <h2 class="modal-title"><strong>Best Match</strong></h2>
                 </div>
                 <div class="modal-body">
-                    <h2 id="matchName"></h2>
+                    <h2>Your best friends name is: </h2><h2 id="matchName"></h2>
+                    <h2>Your best friends picture is:</h2>
                     <img id="matchImg" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
                 </div>
                 <div class="modal-footer">
@@ -175,11 +183,13 @@
     </div>
     <!-- <script type="text/javascript" src="/js/compatible-logic.js"></script> -->
     <script type="text/javascript">
+    
+// create function for when submit button is pressed.
     $("#submit").on("click", function() {
         console.log('I just clicked the submit button');
 
         
-
+// saves all information from page to object called friendData
         var friendData = {
             name: $("#friend_name").val(),
             photo: $("#friend_photo").val(),
@@ -187,9 +197,9 @@
         }
 
         var currentURL = window.location.origin;
-        
+// function sends friendData to url and manipulates data, return on .done as "data"
         $.post( currentURL + "/api/friends", friendData).done(function(data){
-            console.log(data);
+            console.log(data);  //making sure that data is accurate
 
             
             $("#matchName").text(data.name);
